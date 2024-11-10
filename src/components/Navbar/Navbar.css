@@ -1,0 +1,121 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10; /* Lower z-index for navbar */
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Fix position of the hamburger icon */
+.hamburger {
+  display: none;
+  position: relative; /* Ensure the hamburger icon is properly positioned */
+  z-index: 20; /* Ensure it is on top of the navbar */
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.hamburger.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Top Bar for Navbar Menu */
+.top-bar {
+  display: block;
+}
+
+.navbar-menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-item {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s;
+}
+
+.navbar-item:hover {
+  background-color: #555;
+}
+
+/* Mobile Drawer Styles */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none; /* Hide navbar menu by default */
+  }
+  
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 30; /* Keep the hamburger icon on top */
+  }
+
+  /* Show the menu in the top bar when the hamburger is open */
+  .top-bar {
+    display: none;
+  }
+
+  /* Hide mobile drawer when menu is closed */
+  .mobile-drawer {
+    margin-top: 60px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    background-color: black;
+    width: 100%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .nav-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .nav-item {
+    padding: 1rem 0;
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
